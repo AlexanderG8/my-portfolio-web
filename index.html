@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio personal de Alexander Gomez, desarrollador de software con interés en tecnologías web, frontend, backend e inteligencia artificial">
+    <meta name="keywords" content="desarrollador, software, web, frontend, backend, inteligencia artificial, portfolio, Alexander Gomez">
+    <meta name="author" content="Alexander Gomez">
+    
+    <title>Alexander Gomez | Developer Software</title>
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/images/Logo.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5A0DA6',    /* Morado profundo - Color principal */
+                        secondary: '#881DF2',  /* Morado brillante - Color secundario */
+                        accent1: '#F2A0BE',    /* Rosa claro - Primer acento */
+                        accent2: '#D773D9',    /* Rosa-morado - Segundo acento */
+                        dark: '#333333',      /* Gris oscuro para texto */
+                        light: '#F2F2F2'      /* Gris muy claro para fondos */
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        mono: ['Roboto Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .tech-icon {
+            transition: all 0.3s ease;
+        }
+        .tech-icon:hover {
+            transform: translateY(-5px);
+        }
+        .nav-link {
+            position: relative;
+        }
+        .nav-link:after {
+            content: "";
+            position: absolute;
+            background-color: currentColor;
+            height: 2px;
+            width: 0;
+            left: 0;
+            bottom: -2px;
+            transition: 0.3s;
+        }
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-light text-dark">
+    <!-- Header / Navigation -->
+    <header class="fixed w-full bg-white/80 backdrop-blur-sm shadow-sm z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="index.html"><img src="assets/images/Logo.png" alt="Logo" class="w-12"></a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#sobre-mi" class="nav-link text-dark hover:text-primary font-medium transition-colors">Sobre mí</a>
+                    <a href="#proyectos" class="nav-link text-dark hover:text-primary font-medium transition-colors">Proyectos</a>
+                    <a href="#habilidades" class="nav-link text-dark hover:text-primary font-medium transition-colors">Habilidades</a>
+                    <!-- <a href="#blog" class="nav-link text-dark hover:text-primary font-medium transition-colors">Blog</a> -->
+                    <a href="#contacto" class="nav-link text-dark hover:text-primary font-medium transition-colors">Contacto</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-dark focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-3 space-y-3">
+                <a href="#sobre-mi" class="block text-dark hover:text-primary font-medium py-2 transition-colors">Sobre mí</a>
+                <a href="#proyectos" class="block text-dark hover:text-primary font-medium py-2 transition-colors">Proyectos</a>
+                <a href="#habilidades" class="block text-dark hover:text-primary font-medium py-2 transition-colors">Habilidades</a>
+                <!-- <a href="#blog" class="block text-dark hover:text-primary font-medium py-2 transition-colors">Blog</a> -->
+                <a href="#contacto" class="block text-dark hover:text-primary font-medium py-2 transition-colors">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-28 pb-20 md:pt-36 md:pb-28">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0 reveal">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+                        Hola, soy <span class="text-primary">Alexander Gomez</span>
+                    </h1>
+                    <h2 class="text-xl md:text-2xl text-gray-600 mb-6">
+                        Desarrollador de Software
+                    </h2>
+                    <p class="text-gray-700 mb-8 max-w-lg">
+                        Apasionado por crear soluciones digitales innovadoras con tecnologías web modernas. Y en camino a convertirme en especialista en frontend, backend e inteligencia artificial para ofrecer experiencias digitales completas y de alto impacto.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#proyectos" class="bg-primary hover:bg-primary/90 text-white font-medium py-2 px-6 rounded-md transition duration-300 shadow-lg shadow-primary/20 flex items-center">
+                            <span>Ver proyectos</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#contacto" class="border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-6 rounded-md transition duration-300 flex items-center">
+                            <span>Contáctame</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-2/5 reveal" style="transition-delay: 0.2s;">
+                    <div class="relative">
+                        <!-- Profile image placeholder - replace with your actual profile image -->
+                        <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto overflow-hidden border-4 border-white shadow-xl">
+                            <img src="assets/images/my-photo.jpg" alt="Alexander Gomez" class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400x400?text=AG';">
+                        </div>
+                        <!-- Tech icons floating around the profile image -->
+                        <div class="absolute -top-4 -left-4 bg-white p-3 rounded-full shadow-lg tech-icon">
+                            <i class="fab fa-html5 text-[#E44D26] text-2xl"></i>
+                        </div>
+                        <div class="absolute top-1/4 -right-4 bg-white p-3 rounded-full shadow-lg tech-icon">
+                            <i class="fab fa-css3-alt text-[#264DE4] text-2xl"></i>
+                        </div>
+                        <div class="absolute top-2/3 -right-6 bg-white p-3 rounded-full shadow-lg tech-icon">
+                            <i class="fab fa-css3 text-[#38B2AC] text-2xl"></i>
+                        </div>
+                        <div class="absolute top-1/3 -left-6 bg-white p-3 rounded-full shadow-lg tech-icon">
+                            <i class="fab fa-js text-[#F7DF1E] text-2xl"></i>
+                        </div>
+                        <div class="absolute -bottom-4 left-1/4 bg-white p-3 rounded-full shadow-lg tech-icon">
+                            <i class="fab fa-react text-[#61DAFB] text-2xl"></i>
+                        </div>
+                        <div class="absolute -bottom-6 right-1/4 bg-white p-3 rounded-full shadow-lg tech-icon">
+                            <i class="fab fa-github text-[#333333] text-2xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="sobre-mi" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Sobre <span class="text-primary">Mí</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Conoce más sobre mí y mi trayectoria como desarrollador de software</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-2/5 reveal">
+                    <div class="relative bg-white p-2 rounded-lg shadow-xl">
+                        <!-- About me image placeholder - replace with a professional image -->
+                        <img src="assets/images/trabajando.jpeg" alt="Alexander Gomez" class="rounded-lg w-full h-auto object-cover aspect-[4/3]" onerror="this.src='https://via.placeholder.com/600x450?text=Alexander+Gomez';">
+                        
+                        <!-- Experience badge -->
+                        <div class="absolute -bottom-5 -right-5 bg-primary text-white text-center py-4 px-6 rounded-lg shadow-lg reveal" style="transition-delay: 0.3s;">
+                            <span class="block text-3xl font-bold">3+</span>
+                            <span class="text-sm">Años de Experiencia</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-3/5 reveal" style="transition-delay: 0.2s;">
+                    <h3 class="text-2xl font-bold mb-4 mt-10 lg:mt-0">Desarrollador de Software <span class="text-primary">apasionado</span></h3>
+                    
+                    <p class="text-gray-700 mb-4">
+                        Soy un desarrollador de software con un fuerte interés en tecnologías web, backend e inteligencia artificial. Mi objetivo es crear experiencias digitales que sean tanto funcionales como estéticamente agradables.
+                    </p>
+                    
+                    <p class="text-gray-700 mb-6">
+                        Constantemente me estoy actualizando con las últimas tendencias y tecnologías en el mundo del desarrollo. Creo firmemente en el poder del código limpio, la usabilidad y las buenas prácticas para construir productos digitales de calidad.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                            <span>Desarrollo Web Frontend</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                            <span>Desarrollo Backend</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                            <span>Diseño Responsivo</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check-circle text-primary mr-3"></i>
+                            <span>Inteligencia Artificial</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-4">
+                        <a href="assets/docs/CV-Alexander-Gomez.pdf" target="_blank" class="bg-primary hover:bg-primary/90 text-white font-medium py-2 px-6 rounded-md transition duration-300 flex items-center shadow-lg shadow-primary/20">
+                            <i class="fas fa-download mr-2"></i>
+                            <span>Descargar CV</span>
+                        </a>
+                        <a href="#contacto" class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-6 rounded-md transition duration-300 flex items-center">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            <span>Contáctame</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Mis <span class="text-primary">Proyectos</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explora algunos de los proyectos en los que he trabajado recientemente</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 reveal">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/images/projects/whatsapp-templates-project.png" alt="Proyecto de E-commerce" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=E-commerce+App';">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Destacado</div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Whatsapp Templates</h3>
+                        <p class="text-gray-600 mb-4">Una aplicación que permite crear y gestionar plantillas para mensajes de WhatsApp.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs font-medium bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full">HTML</span>
+                            <span class="text-xs font-medium bg-green-100 text-green-800 px-2.5 py-0.5 rounded-full">Tailwind CSS</span>
+                            <span class="text-xs font-medium bg-yellow-100 text-yellow-800 px-2.5 py-0.5 rounded-full">Javascript</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <a href="https://github.com/AlexanderG8/whatsapp-templates.git" target="_blank" class="text-primary hover:text-primary/80 font-medium flex items-center transition-colors">
+                                <i class="fab fa-github mr-2"></i>
+                                <span>Código</span>
+                            </a>
+                            <a href="https://alexanderg8.github.io/whatsapp-templates/" target="_blank" class="text-primary hover:text-primary/80 font-medium flex items-center transition-colors">
+                                <span>Demo</span>
+                                <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 reveal" style="transition-delay: 0.1s;">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/images/projects/markdown-project.png" alt="Markdown Editor" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Markdown+Editor';">
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Markdown Editor</h3>
+                        <p class="text-gray-600 mb-4">Aplicación para edición de código markdown.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs font-medium bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full">HTML</span>
+                            <span class="text-xs font-medium bg-green-100 text-green-800 px-2.5 py-0.5 rounded-full">Tailwind CSS</span>
+                            <span class="text-xs font-medium bg-yellow-100 text-yellow-800 px-2.5 py-0.5 rounded-full">Javascript</span>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <a href="https://github.com/AlexanderG8/markdown-editor" target="_blank" class="text-primary hover:text-primary/80 font-medium flex items-center transition-colors">
+                                <i class="fab fa-github mr-2"></i>
+                                <span>Código</span>
+                            </a>
+                            <a href="https://alexanderg8.github.io/markdown-editor/" target="_blank" class="text-primary hover:text-primary/80 font-medium flex items-center transition-colors">
+                                <span>Demo</span>
+                                <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 reveal" style="transition-delay: 0.2s;">
+                    <div class="relative overflow-hidden">
+                        <img src="assets/images/projects/personal-budget-projects.png" alt="Personal Budget" class="w-full h-64 object-cover transition-transform duration-500 hover:scale-110" onerror="this.src='https://via.placeholder.com/600x400?text=Personal+Budget';">
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Personal Budget</h3>
+                        <p class="text-gray-600 mb-4">Aplicación para gestionar presupuestos personales con funcionalidades de análisis y visualización.</p>
+
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-xs font-medium bg-blue-100 text-blue-800 px-2.5 py-0.5 rounded-full">HTML</span>
+                            <span class="text-xs font-medium bg-green-100 text-green-800 px-2.5 py-0.5 rounded-full">Tailwind CSS</span>
+                            <span class="text-xs font-medium bg-yellow-100 text-yellow-800 px-2.5 py-0.5 rounded-full">Javascript</span>
+                        </div>
+
+                        <div class="flex justify-between">
+                            <a href="https://github.com/AlexanderG8/personal-budget" target="_blank" class="text-primary hover:text-primary/80 font-medium flex items-center transition-colors">
+                                <i class="fab fa-github mr-2"></i>
+                                <span>Código</span>
+                            </a>
+                            <a href="https://alexanderg8.github.io/personal-budget/" target="_blank" class="text-primary hover:text-primary/80 font-medium flex items-center transition-colors">
+                                <span>Demo</span>
+                                <i class="fas fa-external-link-alt ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://github.com/stars/AlexanderG8/lists/my-proyects" target="_blank" class="inline-flex items-center text-primary hover:text-primary/80 font-medium transition-colors">
+                    <span>Ver más proyectos en GitHub</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="habilidades" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Mis <span class="text-primary">Habilidades</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Estas son algunas de las tecnologías y herramientas con las que trabajo</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-6 mb-12">
+                <!-- Skill Item 1: HTML -->
+                <div class="text-center reveal hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-center items-center">
+                        <i class="fab fa-html5 text-[#E44D26] text-5xl mb-4"></i>
+                        <h3 class="font-bold">HTML5</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-3">
+                            <div class="bg-primary h-1.5 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 2: CSS -->
+                <div class="text-center reveal hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 0.05s;">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-center items-center">
+                        <i class="fab fa-css3-alt text-[#264DE4] text-5xl mb-4"></i>
+                        <h3 class="font-bold">CSS3</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-3">
+                            <div class="bg-primary h-1.5 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 3: JavaScript -->
+                <div class="text-center reveal hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 0.1s;">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-center items-center">
+                        <i class="fab fa-js text-[#F7DF1E] text-5xl mb-4"></i>
+                        <h3 class="font-bold">JavaScript</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-3">
+                            <div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 4: Tailwind CSS -->
+                <div class="text-center reveal hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 0.15s;">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-center items-center">
+                        <i class="fab fa-css3 text-[#38B2AC] text-5xl mb-4"></i>
+                        <h3 class="font-bold">Tailwind CSS</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-3">
+                            <div class="bg-primary h-1.5 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 5: C# -->
+                <div class="text-center reveal hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 0.2s;">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-center items-center">
+                        <i class="fab fa-microsoft text-[#512BD4] text-5xl mb-4"></i>
+                        <h3 class="font-bold">C#</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-3">
+                            <div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 6: SQL -->
+                <div class="text-center reveal hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 0.25s;">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-center items-center">
+                        <i class="fas fa-database text-[#336791] text-5xl mb-4"></i>
+                        <h3 class="font-bold">SQL</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-3">
+                            <div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skill Item 7: GitHub -->
+                <div class="text-center reveal hover:-translate-y-2 transition-transform duration-300" style="transition-delay: 0.3s;">
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col justify-center items-center">
+                        <i class="fab fa-github text-[#333333] text-5xl mb-4"></i>
+                        <h3 class="font-bold">GitHub</h3>
+                        <div class="w-full bg-gray-200 rounded-full h-1.5 mt-3">
+                            <div class="bg-primary h-1.5 rounded-full" style="width: 50%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Development Skills -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg reveal">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-code text-primary mr-3"></i>
+                        <span>Desarrollo Web</span>
+                    </h3>
+
+                    <!-- Skill with percentage 1 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Frontend Development</span>
+                            <span class="text-primary font-medium">40%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 40%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill with percentage 2 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Backend Development</span>
+                            <span class="text-primary font-medium">55%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 55%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill with percentage 3 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Responsive Design</span>
+                            <span class="text-primary font-medium">40%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 40%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Skills -->
+                <div class="bg-gray-50 p-8 rounded-xl shadow-lg reveal" style="transition-delay: 0.2s;">
+                    <h3 class="text-xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-laptop-code text-primary mr-3"></i>
+                        <span>Otras Habilidades</span>
+                    </h3>
+
+                    <!-- Skill with percentage 1 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Inteligencia Artificial</span>
+                            <span class="text-primary font-medium">35%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 35%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill with percentage 2 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">UI/UX Design</span>
+                            <span class="text-primary font-medium">25%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 25%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill with percentage 3 -->
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="font-medium">Slack & Jira</span>
+                            <span class="text-primary font-medium">40%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 40%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+     <!--
+    <section id="blog" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Mi <span class="text-primary">Blog</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Comparto conocimientos y experiencias sobre desarrollo de software y tecnología</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                -- Blog Post 1
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 reveal">
+                    <a href="blog-post-1.html" class="block overflow-hidden">
+                        <img src="assets/images/blog/blog1.jpg" alt="Tendencias de Desarrollo Web 2025" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://via.placeholder.com/600x400?text=Web+Dev+Trends';">
+                    </a>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>22 Abril, 2025</span>
+                            <span class="mx-2">|</span>
+                            <i class="far fa-folder mr-2"></i>
+                            <span>Desarrollo Web</span>
+                        </div>
+                        
+                        <a href="blog-post-1.html">
+                            <h3 class="text-xl font-bold mb-3 hover:text-primary transition-colors">Tendencias de Desarrollo Web para 2025</h3>
+                        </a>
+                        
+                        <p class="text-gray-600 mb-4">Un análisis de las tecnologías y prácticas que definirán el desarrollo web en 2025. Desde frameworks hasta metodologías emergentes.</p>
+                        
+                        <a href="blog-post-1.html" class="text-primary hover:text-primary/80 font-medium flex items-center transition-colors">
+                            <span>Leer más</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                -- Blog Post 2
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 reveal" style="transition-delay: 0.1s;">
+                    <a href="blog-post-2.html" class="block overflow-hidden">
+                        <img src="assets/images/blog/blog2.jpg" alt="Inteligencia Artificial en Desarrollo" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://via.placeholder.com/600x400?text=AI+in+Development';">
+                    </a>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>10 Abril, 2025</span>
+                            <span class="mx-2">|</span>
+                            <i class="far fa-folder mr-2"></i>
+                            <span>Inteligencia Artificial</span>
+                        </div>
+                        
+                        <a href="blog-post-2.html">
+                            <h3 class="text-xl font-bold mb-3 hover:text-primary transition-colors">Cómo la IA está transformando el desarrollo de software</h3>
+                        </a>
+                        
+                        <p class="text-gray-600 mb-4">Explorando las diferentes formas en que la inteligencia artificial está revolucionando la manera en que desarrollamos software actualmente.</p>
+                        
+                        <a href="blog-post-2.html" class="text-primary hover:text-primary/80 font-medium flex items-center transition-colors">
+                            <span>Leer más</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                -- Blog Post 3
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 reveal" style="transition-delay: 0.2s;">
+                    <a href="blog-post-3.html" class="block overflow-hidden">
+                        <img src="assets/images/blog/blog3.jpg" alt="Mejores Prácticas en Desarrollo Frontend" class="w-full h-56 object-cover transition-transform duration-500 hover:scale-105" onerror="this.src='https://via.placeholder.com/600x400?text=Frontend+Best+Practices';">
+                    </a>
+                    
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <i class="far fa-calendar-alt mr-2"></i>
+                            <span>1 Abril, 2025</span>
+                            <span class="mx-2">|</span>
+                            <i class="far fa-folder mr-2"></i>
+                            <span>Frontend</span>
+                        </div>
+                        
+                        <a href="blog-post-3.html">
+                            <h3 class="text-xl font-bold mb-3 hover:text-primary transition-colors">10 Mejores Prácticas para Desarrollo Frontend Moderno</h3>
+                        </a>
+                        
+                        <p class="text-gray-600 mb-4">Guía práctica sobre cómo mejorar tu código frontend, optimizar el rendimiento y crear interfaces de usuario más accesibles.</p>
+                        
+                        <a href="blog-post-3.html" class="text-primary hover:text-primary/80 font-medium flex items-center transition-colors">
+                            <span>Leer más</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="blog.html" class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-6 rounded-md transition duration-300 inline-flex items-center shadow-lg">
+                    <span>Ver todos los artículos</span>
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    -->
+    <!-- Contact Section -->
+    <section id="contacto" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact<span class="text-primary">o</span></h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Estoy disponible para nuevas oportunidades y colaboraciones. No dudes en contactarme por los siguientes medios.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-gray-50 p-8 sm:p-12 rounded-xl shadow-lg reveal">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Direct Contact -->
+                    <div class="space-y-8">
+                        <h3 class="text-2xl font-bold">Contacto Directo</h3>
+                        
+                        <!-- Email Contact - Primary Method -->
+                        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white p-4 rounded-md mr-4 text-2xl flex items-center justify-center">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2">Email</h4>
+                                    <a href="mailto:mpalexanderg@outlook.com" class="text-primary hover:text-secondary transition-colors font-medium flex items-center group">
+                                        mpalexanderg@outlook.com
+                                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                                    </a>
+                                    <p class="text-gray-500 mt-2 text-sm">Respondo correos diariamente</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- LinkedIn Contact - Secondary Method -->
+                        <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+                            <div class="flex items-start">
+                                <div class="bg-secondary text-white p-4 rounded-md mr-4 text-2xl flex items-center justify-center">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-lg mb-2">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/marcello-alexander-gomez-gomez-130587268/" target="_blank" class="text-primary hover:text-secondary transition-colors font-medium flex items-center group">
+                                        Perfil de LinkedIn
+                                        <i class="fas fa-external-link-alt ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                                    </a>
+                                    <p class="text-gray-500 mt-2 text-sm">Respondo mensajes diariamente</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location and Other Info -->
+                    <div class="space-y-8">
+                        <h3 class="text-2xl font-bold">Información Adicional</h3>
+                        <!-- Social Networks -->
+                        <div class="bg-white p-6 rounded-xl shadow-md">
+                            <h4 class="font-bold text-lg mb-4">Redes Sociales</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/AlexanderG8" target="_blank" class="bg-gray-100 hover:bg-primary hover:text-white text-dark p-4 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center">
+                                    <i class="fab fa-github text-xl"></i>
+                                </a>
+                                <a href="https://www.instagram.com/xandev008/" target="_blank" class="bg-gray-100 hover:bg-accent2 hover:text-white text-dark p-4 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md flex items-center justify-center">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Call to action -->
+                        <div class="mt-8 text-center">
+                            <p class="text-gray-600 mb-4">Responderé a tu mensaje en menos de 24 horas</p>
+                            <a href="mailto:mpalexanderg@outlook.com" class="inline-flex items-center justify-center bg-primary hover:bg-secondary text-white font-medium py-3 px-6 rounded-md transition duration-300 shadow-lg">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                <span>Contáctame ahora</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 text-white py-10">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html"><img src="assets/images/Logo.png" alt="Logo" class="w-12"></a>
+                    <p class="text-gray-700 mt-2">Desarrollador de Software</p>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0">
+                    <a href="#sobre-mi" class="text-gray-700 hover:text-primary transition-colors">Sobre mí</a>
+                    <a href="#proyectos" class="text-gray-700 hover:text-primary transition-colors">Proyectos</a>
+                    <a href="#habilidades" class="text-gray-700 hover:text-primary transition-colors">Habilidades</a>
+                    <!-- <a href="#blog" class="text-gray-400 hover:text-primary transition-colors">Blog</a> -->
+                    <a href="#contacto" class="text-gray-700 hover:text-primary transition-colors">Contacto</a>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="https://github.com/AlexanderG8" target="_blank" class="text-gray-700 hover:text-primary transition-colors">
+                        <i class="fab fa-github text-lg"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/marcello-alexander-gomez-gomez-130587268/" target="_blank" class="text-gray-700 hover:text-primary transition-colors">
+                        <i class="fab fa-linkedin-in text-lg"></i>
+                    </a>
+                    <!-- <a href="https://twitter.com/username" target="_blank" class="text-gray-400 hover:text-primary transition-colors">
+                        <i class="fab fa-twitter text-lg"></i>
+                    </a> -->
+                    <a href="https://www.instagram.com/xandev008/" target="_blank" class="text-gray-700 hover:text-primary transition-colors">
+                        <i class="fab fa-instagram text-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <hr class="border-gray-800 my-8">
+            
+            <div class="text-center text-gray-700">
+                <p>&copy; 2025 Alexander Gomez. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = document.querySelectorAll('#mobile-menu a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Scroll Reveal Animation
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                } else {
+                    element.classList.remove('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+        
+        // Active navigation link based on scroll position
+        function activeNavOnScroll() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', activeNavOnScroll);
+        window.addEventListener('load', activeNavOnScroll);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjusted for fixed header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
